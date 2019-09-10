@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
     # eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjoidGVzdCJ9.pNIWIL34Jo13LViZAJACzK6Yf0qnvT_BuwOxiMCPE-Y
     puts token
 
-    decoded_token = JWT.decode token, hmac_secret, true, { algorithm: 'HS256' }
+    decoded_token = JWT.decode token, ENV['HMAC_SECRET'], true, { algorithm: 'HS256' }
 
     # Array
     # [
