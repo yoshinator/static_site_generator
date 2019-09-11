@@ -18,15 +18,17 @@ class SessionsController < ApplicationController
   end
 
   def log_in(user)
-    payload = { data: user }
+    
+    expires = Time.now.to_i + (7 * 3600)
+    payload = { data: user.id, exp: expires }
 
-
-    token = JWT.encode payload, ENV['HMAC_SECRET'], 'HS256'
+    hmac_secret = ENV['HMAC_SECRET']
+    token = JWT.encode payload, hmac_secret, 'HS256'
 
     # eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjoidGVzdCJ9.pNIWIL34Jo13LViZAJACzK6Yf0qnvT_BuwOxiMCPE-Y
     puts token
 
-    decoded_token = JWT.decode token, ENV['HMAC_SECRET'], true, { algorithm: 'HS256' }
+    decoded_token = JWT.decode token, hmac_secret, true, { algorithm: 'HS256' }
 
     # Array
     # [
@@ -35,6 +37,8 @@ class SessionsController < ApplicationController
     # ]
     puts "The token is #{token}"
     puts "The decoded token is #{decoded_token}"
+    user = User.find(decoded_token[0]["data"])
+    puts "Name #{user.f_name}"
   end
 
 
