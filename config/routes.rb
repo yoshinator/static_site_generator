@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
+  get 'businesses/index'
+  get 'businesses/new'
+  get 'businesses/create'
+  get 'businesses/show'
+  get 'businesses/edit'
+  get 'businesses/update'
+  get 'businesses/destroy'
   resources :users
   resources :pages
+  resources :businesses
+  resource :cities
+  resource :services
   get "/", to: "static_pages#index"
   get "/logout", to: "sessions#destroy"
   root to: "static_pages#index"
