@@ -7,6 +7,9 @@ class PagesController < ApplicationController
     def show
     end
 
+    def new
+    end
+
     private
     def authorize
         @user = User.find_by(id: session[:current_user_id])

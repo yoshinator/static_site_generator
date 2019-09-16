@@ -3,9 +3,7 @@ class SessionsController < ApplicationController
         # Get access tokens from the google server
         access_token = request.env["omniauth.auth"]
         user = User.from_omniauth(access_token)
-        user.save
         create_session(user)
-        
         # Access_token is used to authenticate request made from the rails application to the google server
         #user.google_token = access_token.credentials.token
 
