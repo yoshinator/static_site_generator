@@ -13,7 +13,7 @@ class PagesController < ApplicationController
     private
     def authorize
         @user = User.find_by(id: session[:current_user_id])
-        redirect_to root_path	if !@user 
+        redirect_to root_path	if !@user || !@user.admin
     end
 
 end

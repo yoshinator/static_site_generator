@@ -9,6 +9,9 @@ class SessionsController < ApplicationController
 
         refresh_token = access_token.credentials.refresh_token
         user.google_refresh_token = refresh_token if refresh_token.present?
+        if User.all.length == 0
+            user.admin = true
+        end
         user.save
         redirect_to root_path
     end
@@ -16,6 +19,7 @@ class SessionsController < ApplicationController
     def create_session(user)
         session[:current_user_id] = user.id
     end
+
 
     def destroy
         session[:current_user_id] = nil
