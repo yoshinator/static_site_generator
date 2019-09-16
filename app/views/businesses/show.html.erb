@@ -1,2 +1,5 @@
 <h1>Businesses#show</h1>
-<p>Find me in app/views/businesses/show.html.erb</p>
+<strong>Business Name</strong>
+<%=@business.name%>
+<%= link_to 'Edit', edit_business_path(@business) %> |
+<%= link_to 'Back', businesses_path %>

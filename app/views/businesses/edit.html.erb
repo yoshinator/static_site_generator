@@ -1,2 +1,6 @@
-<h1>Businesses#edit</h1>
-<p>Find me in app/views/businesses/edit.html.erb</p>
+<h1>Editing Business</h1>
+
+<%= render 'form', business: @business %>
+
+<%= link_to 'Show', @business %> |
+<%= link_to 'Back', businesses_path %>
