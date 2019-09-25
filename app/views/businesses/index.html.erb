@@ -2,6 +2,6 @@
 <ul>
   <% @businesses.each  do |b|%>
 
-    <li><%=b.name%></li>
+    <li><%=link_to b.name, edit_business_path(b) %></li>
   <%end%>
 </ul>

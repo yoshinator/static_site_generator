@@ -31,8 +31,11 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Omniauth google oauth helper gem
 gem 'omniauth-google-oauth2'
 
-# JWT for authorization
-gem 'jwt'
+# Bootstrap
+gem 'bootstrap', '~> 4.3.1'
+
+# Font Awesome 
+gem "font-awesome-rails"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -5,11 +5,22 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+  <!-- Custom styles for this template -->
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#navbar-example">
     <%= yield %>
+  
+  <script src="https://blackrockdigital.github.io/startbootstrap-grayscale/js/grayscale.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+  <script src="https://blackrockdigital.github.io/startbootstrap-grayscale/vendor/jquery/jquery.min.js"></script>
+  <script src="https://blackrockdigital.github.io/startbootstrap-grayscale/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="https://blackrockdigital.github.io/startbootstrap-grayscale/vendor/jquery-easing/jquery.easing.min.js"></script>
   </body>
+
 </html>
