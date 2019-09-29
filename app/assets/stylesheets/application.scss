@@ -180,16 +180,23 @@
   background-color: #64a19d;
 }
 
+.btn-danger {
+  background-color: #97a1a1;
+}
+
+.btn-danger:hover  {
+  background-color: #97a1a1;
+}
 .btn-primary:hover {
   background-color: #4f837f;
 }
 
-.btn-primary:focus {
+.btn-primary:focus, .btn-danger:focus  {
   background-color: #4f837f;
   color: white;
 }
 
-.btn-primary:active {
+.btn-primary:active, .btn-danger:active  {
   background-color: #467370 !important;
 }
 
@@ -303,6 +310,13 @@
 .contact-section .social a:active {
   color: #fff;
 }
+// Contact form 
+
+#result, #second, #third, #fourth {
+  display: none;
+}
+
+
 
 body {
   font-family: 'Nunito';
