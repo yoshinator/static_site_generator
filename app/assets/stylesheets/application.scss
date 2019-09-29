@@ -13,6 +13,8 @@
  */
 
  @import "bootstrap";
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
 
  /*!
  * Start Bootstrap - Grayscale v5.0.9 (https://startbootstrap.com/template-overviews/grayscale)
@@ -40,6 +42,10 @@
   color: #161616;
   font-weight: 700;
   padding: .9rem 0;
+}
+
+#nav-small{
+  font-size: 80%;
 }
 
 #mainNav .navbar-nav .nav-item:hover {
@@ -272,6 +278,13 @@
   border-radius: 100%;
   line-height: 3rem;
   color: rgba(255, 255, 255, 0.3);
+}
+
+.inverted-section {
+  background: #64a19d;
+}
+.inverted-section a, .inverted-section a:focus, .inverted-section a:hover{
+  color: #f8f9fa;
 }
 
 .contact-section .social a:hover {
