@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2019_09_29_000657) do
     t.string "city"
     t.string "state"
     t.integer "zip"
+    t.integer "business_id"
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

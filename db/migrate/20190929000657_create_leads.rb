@@ -10,6 +10,7 @@ class CreateLeads < ActiveRecord::Migration[6.0]
       t.string :city
       t.string :state
       t.integer :zip
+      t.integer :business_id
       t.text :content
 
       t.timestamps
