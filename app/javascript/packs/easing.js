@@ -1,11 +1,13 @@
 /*
- * jQuery Easing v1.4.1 - http://gsgd.co.uk/sandbox/jquery/easing/
- * Open source under the BSD License.
- * Copyright © 2008 George McGinley Smith
- * All rights reserved.
- * https://raw.github.com/gdsmith/jquery.easing/master/LICENSE
+* jQuery Easing v1.4.1 - http://gsgd.co.uk/sandbox/jquery/easing/
+* Open source under the BSD License.
+* Copyright © 2008 George McGinley Smith
+* All rights reserved.
+* https://raw.github.com/gdsmith/jquery.easing/master/LICENSE
 */
 
+$(document).on('ready turbolinks:load', function () {
+  console.log("HHHHHIIIII");
 (function (factory) {
   if (typeof define === "function" && define.amd) {
     define(['jquery'], function ($) {
@@ -164,5 +166,117 @@
           (1 + bounceOut(2 * x - 1)) / 2;
       }
     });
+
+});
+// GREY SCALE
+
+(function ($) {
+  "use strict"; // Start of use strict
+
+  // Smooth scrolling using jQuery easing
+  $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
+    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      if (target.length) {
+        $('html, body').animate({
+          scrollTop: (target.offset().top - 70)
+        }, 1000, "easeInOutExpo");
+        return false;
+      }
+    }
+  });
+
+  // Closes responsive menu when a scroll trigger link is clicked
+  $('.js-scroll-trigger').click(function () {
+    $('.navbar-collapse').collapse('hide');
+  });
+
+  // Activate scrollspy to add active class to navbar items on scroll
+  $('body').scrollspy({
+    target: '#mainNav',
+    offset: 100
+  });
+
+  // Collapse Navbar
+  var navbarCollapse = function () {
+    if ($("#mainNav").offset().top > 100) {
+      $("#mainNav").addClass("navbar-shrink");
+    } else {
+      $("#mainNav").removeClass("navbar-shrink");
+    }
+  };
+  // Collapse now if page is not at top
+  navbarCollapse();
+  // Collapse the navbar when page is scrolled
+  $(window).scroll(navbarCollapse);
+
+})(jQuery); // End of use strict
+
+// FORM
+
+  $("#next-1").click(function (e) {
+    e.preventDefault();
+    $("#second").show();
+    $("#first").hide();
+    $("#progressBar").css("width", "40%");
+    $("#progressText").text("Step - 2");
+  });
+
+  $("#next-2").click(function (e) {
+    e.preventDefault();
+    $("#third").show();
+    $("#second").hide();
+    $("#progressBar").css("width", "60%");
+    $("#progressText").text("Step - 3");
+  });
+
+  $("#next-3").click(function (e) {
+    e.preventDefault();
+    $("#fourth").show();
+    $("#third").hide();
+    $("#progressBar").css("width", "80%");
+    $("#progressText").text("Step - 4");
+  });
+
+  $("#next-4").click(function (e) {
+    e.preventDefault();
+    $("#fifth").show();
+    $("#fourth").hide();
+    $("#progressBar").css("width", "100%");
+    $("#progressText").text("Step - 5");
+  });
+
+  $("#prev-2").click(function (e) {
+    e.preventDefault();
+    $("#second").hide();
+    $("#first").show();
+    $("#progressBar").css("width", "20%");
+    $("#progressText").text("Step - 1");
+  })
+
+  $("#prev-3").click(function (e) {
+    e.preventDefault();
+    $("#third").hide();
+    $("#second").show();
+    $("#progressBar").css("width", "40%");
+    $("#progressText").text("Step - 2");
+  })
+
+  $("#prev-4").click(function (e) {
+    e.preventDefault();
+    $("#fourth").hide();
+    $("#third").show();
+    $("#progressBar").css("width", "60%");
+    $("#progressText").text("Step - 3");
+  });
+
+  $("#prev-5").click(function (e) {
+    e.preventDefault();
+    $("#fifth").hide();
+    $("#fourth").show();
+    $("#progressBar").css("width", "80%");
+    $("#progressText").text("Step - 4");
+  });
 
 });
