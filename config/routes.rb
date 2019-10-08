@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get "/", to: "static_pages#index"
   get "/logout", to: "sessions#destroy"
 
+  get "/leads", to: "leads#index"
+  post "/leads", to: "leads#create"
+
   # Routes for Google authentication
   get "auth/:provider/callback", to: "sessions#googleAuth"
   get "auth/failure", to: redirect("/")
