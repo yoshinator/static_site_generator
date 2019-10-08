@@ -18,7 +18,6 @@ require("bootstrap/dist/js/bootstrap")
 */
 
 $(document).on('ready turbolinks:load', function () {
-  console.log("HHHHHIIIII");
   (function (factory) {
     if (typeof define === "function" && define.amd) {
       define(['jquery'], function ($) {
