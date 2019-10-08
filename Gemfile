@@ -31,9 +31,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Omniauth google oauth helper gem
 gem 'omniauth-google-oauth2'
 
-# Bootstrap
-gem 'bootstrap', '~> 4.3.1'
-
 # Font Awesome 
 gem 'font-awesome-sass'
 
