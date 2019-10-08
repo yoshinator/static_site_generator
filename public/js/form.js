@@ -28,6 +28,7 @@ $(document).ready(function () {
     e.preventDefault();
     $("#fifth").show();
     $("#fourth").hide();
+    $.ajax({method: "POST", url: "/"})
     $("#progressBar").css("width", "100%");
     $("#progressText").text("Step - 5");
   })
