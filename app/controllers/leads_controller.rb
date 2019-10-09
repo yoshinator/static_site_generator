@@ -7,7 +7,7 @@ class LeadsController < ApplicationController
 
   def create 
     @lead = Lead.new(f_name: lead_params["f_name"], email: lead_params["email"], phone: lead_params["phone"], street_1: lead_params["street_1"], city: lead_params["city"], zip: lead_params["zip"], business_id: lead_params["business_id"])
-    @lead.addContent(lead_params)
+    @lead = Lead.addContent(lead_params, @lead)
     if @lead.valid? 
       @lead.save 
       flash[:notice] = "success"

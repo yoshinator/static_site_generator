@@ -1,18 +1,55 @@
-<h1>LEADS</h1>
-<% @leads.each do |lead|%>
-  First Name: <%=lead.f_name%>
-  Last Name: <%=lead.l_name%>
-  Email: <%=lead.email%>
-  Phone: <%=lead.phone%>
-  Street 1: <%=lead.street_1%>
-  Street 2: <%=lead.street_2%>
-  City: <%=lead.city%>
-  Zip: <%=lead.zip%>
-  For: <%=lead.business.name%>
-  Content: <%=lead.content%>
-<%= link_to 'Show', lead %>
-<%= link_to 'Edit', edit_lead_path(lead) %>
-<%= link_to 'Destroy', lead, method: :delete, data: { confirm: 'Are you sure?' } %>
-<%end%>
+ <header class="masthead">
+    <div class="container d-flex h-100 align-items-center">
+      <div class="mx-auto text-center">  
+        <h1 class="mx-auto my-0 text-uppercase">Action Waste Services</h1>
+      </div>
+    </div>
+  </header>
+  <div class="bg-dark ">
+  <div class="text-light py-2">
+      <h1 class="mx-auto text-center my-0 text-uppercase">leads</h1>
+    </div>
+  </div>
 
+  <section class="contact-section bg-black">
+    <div class="container">
+      <div class="row">
 
+        <% @leads.each do |lead|%>
+        <div class="col-md-4 mb-3 mb-md-0">
+          <div class="card py-4 h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+              <h4 class="text-uppercase m-0"><%="For: "+ lead.business.name%></h4>
+              <h4 class="text-uppercase m-0"><%=lead.city+ " | " + lead.zip.to_s%></h4>
+              <h4 class="text-uppercase m-0"><%=lead.f_name+ " | " + lead.phone%></h4>
+              <h4 class="text-uppercase m-0"><%=lead.email%></h4>
+              <hr class="my-4">
+              <div class="small text-black-50"><%=lead.street_1%></div>
+              <div class="small text-black-50"> Content: <%=lead.content%></div>
+              <hr class="my-2">
+              <%= link_to 'Show', lead %>
+              <%= link_to 'Edit', edit_lead_path(lead) %>
+              <%= link_to 'Destroy', lead, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          </div>
+        </div>
+         
+      <%end%>
+
+      </div>
+      <div class="social d-flex justify-content-center">
+        <a href="#" class="mx-2">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="mx-2">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="mx-2">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+ 
