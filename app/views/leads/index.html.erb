@@ -1,0 +1,18 @@
+<h1>LEADS</h1>
+<% @leads.each do |lead|%>
+  First Name: <%=lead.f_name%>
+  Last Name: <%=lead.l_name%>
+  Email: <%=lead.email%>
+  Phone: <%=lead.phone%>
+  Street 1: <%=lead.street_1%>
+  Street 2: <%=lead.street_2%>
+  City: <%=lead.city%>
+  Zip: <%=lead.zip%>
+  For: <%=lead.business.name%>
+  Content: <%=lead.content%>
+<%= link_to 'Show', lead %>
+<%= link_to 'Edit', edit_lead_path(lead) %>
+<%= link_to 'Destroy', lead, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%end%>
+
+
