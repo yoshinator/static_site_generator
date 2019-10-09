@@ -15,4 +15,9 @@ Rails.application.routes.draw do
   get "auth/:provider/callback", to: "sessions#googleAuth"
   get "auth/failure", to: redirect("/")
 
+
+  # static pages 
+  get "/about", to: "static_pages#about"
+  get "/septic", to: "static_pages#septic"
+  get "/excavation", to: "static_pages#excavation"
 end
