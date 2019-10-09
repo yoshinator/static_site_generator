@@ -1,8 +1,9 @@
 class LeadsController < ApplicationController
+  before_action :authorize, except: [:create]
   before_action :set_lead, only: [:show]
   
   def index 
-    @leads = Lead.all
+    @leads = Lead.order('created_at DESC')
   end 
 
   def create 
@@ -22,6 +23,12 @@ class LeadsController < ApplicationController
   end
 
   private
+
+  def authorize
+      @user = User.find_by(id: session[:current_user_id])
+      redirect_to root_path	if !@user || !@user.admin
+  end
+
   def lead_params
     params.require(:lead).permit(:f_name, :zip, :city, :street_1, :job_location, :business_id, :timeline, :email, :phone)
   end 

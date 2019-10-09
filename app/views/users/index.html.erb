@@ -1,33 +1,57 @@
-<p id="notice"><%= notice %></p>
+ <header class="masthead">
+    <div class="container d-flex h-100 align-items-center">
+      <div class="mx-auto text-center">  
+        <h1 class="mx-auto my-0 text-uppercase">Action Waste Services</h1>
+      </div>
+    </div>
+  </header>
+  <div class="bg-dark ">
+  <div class="text-light py-2">
+      <h1 class="mx-auto text-center my-0 text-uppercase">Users</h1>
+    </div>
+  </div>
 
-<h1>Users</h1>
+  <section class="contact-section bg-black">
+    <div class="container">
+      <div class="row">
 
-<table>
-  <thead>
-    <tr>
-      <th>F name</th>
-      <th>L name</th>
-      <th>Email</th>
-      <th>Username</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <% @users.each do |user|%>
+        <div class="col-md-4 mb-3 mb-md-0">
+          <div class="card py-4 h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+              <h4 class="text-uppercase m-0"> <%= user.f_name + " " + user.l_name %></h4>
+              <h4 class="text-uppercase m-0"><%= user.username %></h4>
+              <hr class="my-4">
+              <h4 class="text-uppercase m-0"><%=user.email%></h4>
+              <hr class="my-2">
+              <%= link_to 'Show', user %> | 
+              <%= link_to 'Edit', edit_user_path(user) %> | 
+              <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %> | 
+              <%= link_to 'New User', new_user_path %>
+            </div>
+          </div>
+        </div>
+         
+      <%end%>
 
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.f_name %></td>
-        <td><%= user.l_name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.username %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      </div>
+      <div class="social d-flex justify-content-center">
+        <a href="#" class="mx-2">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="mx-2">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="mx-2">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
 
-<br>
+    </div>
+  </section>
+ 
+<%= notice %>
 
-<%= link_to 'New User', new_user_path %>
+
+
