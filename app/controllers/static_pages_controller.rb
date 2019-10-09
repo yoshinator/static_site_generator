@@ -12,10 +12,17 @@ class StaticPagesController < ApplicationController
 
     def excavation
     end
+
+    def sewer_drain
+    end 
+
+    def grease_trap
+    end
+
+    def emergency 
+    end 
     
-
     private 
-
     def set_new_lead
         @lead = Lead.new()
     end 

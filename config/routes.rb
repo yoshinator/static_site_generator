@@ -20,4 +20,7 @@ Rails.application.routes.draw do
   get "/about", to: "static_pages#about"
   get "/septic", to: "static_pages#septic"
   get "/excavation", to: "static_pages#excavation"
+  get "/sewer-and-drain", to: "static_pages#sewer_drain"
+  get "/grease-trap", to: "static_pages#grease_trap"
+  get "/emergency", to: "static_pages#emergency"
 end
