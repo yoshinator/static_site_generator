@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
 
   # Routes for Google authentication
+  # /auth/google_oauth2 <-- sign in middleware
   get "auth/:provider/callback", to: "sessions#googleAuth"
   get "auth/failure", to: redirect("/")
 
