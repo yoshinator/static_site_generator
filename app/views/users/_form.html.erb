@@ -1,42 +1,82 @@
-<%= form_with(model: user, local: true) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-        <% user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+ <header class="masthead">
+    <div class="container d-flex h-100 align-items-center">
+      <div class="mx-auto text-center">  
+        <h1 class="mx-auto my-0 text-uppercase">Action Waste Services</h1>
+      </div>
     </div>
+  </header>
+  <div class="bg-dark ">
+  <div class="text-light py-2">
+      <h1 class="mx-auto text-center my-0 text-uppercase">New User </h1>
+    </div>
+  </div>
+
+  <section class="contact-section bg-black">
+    <div class="container">
+
+<%= form_with(model: user, local: true, class: "pt-5 pb-2 px-2 bg-light") do |form| %>
+  <% if user.errors.any? %>
+    <div class="modal" id="myModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title"><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+                  <ul class="text-danger">
+                  <% user.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                  </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   <% end %>
+<div class="container text-left p5">
+  <h4 class="text-center p-1" >User Info </h4>
+  <div class="form-group">
+    
+      <%= form.text_field :f_name, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 ", placeholder: "Enter first name"%>
 
-  <div class="field">
-    <%= form.label :f_name %>
-    <%= form.text_field :f_name %>
-  </div>
+      <%= form.text_field :l_name, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 ", placeholder: "Enter last name" %>
 
-  <div class="field">
-    <%= form.label :l_name %>
-    <%= form.text_field :l_name %>
-  </div>
+      <%= form.text_field :email, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 ", placeholder: "Enter Google email"  %>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
+      <%= form.text_field :username, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 ", placeholder: "Enter optional nickname" %>
 
-  <div class="field">
-    <%= form.label :username %>
-    <%= form.text_field :username %>
-  </div>
+      <%= collection_select(:user, :id, Business.all, :id, :name, {}, class: "form-control") %>
+      <div class="form-check">
+      <%= form.check_box :admin, class: "form-check-input" %>
+      <%= form.label :admin, class: "form-check-label" %>
+      </div>
 
-  <div class="field">
-    <%= form.label :admin %>
-    <%= form.check_box :admin %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+      <%= link_to 'Back', users_path, class: "btn btn-primary"%>
+      <%= form.submit class: "btn btn-primary mx-auto my-3" %>
+      <%= link_to 'View', @user if @user.email%>
+    </div>
   </div>
 <% end %>
+
+
+      </div>
+      <div class="social d-flex justify-content-center">
+        <a href="#" class="mx-2">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="mx-2">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="mx-2">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+
+  </section>

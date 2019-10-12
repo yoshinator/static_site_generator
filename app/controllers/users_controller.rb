@@ -31,6 +31,7 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   def update
+    @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to @user, notice: 'User was successfully updated.'
     else
@@ -41,6 +42,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+      @user = User.find(params[:id])
       @user.destroy
       redirect_to users_url, notice: 'User was successfully destroyed.' 
   end
