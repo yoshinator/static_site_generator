@@ -1,3 +1,5 @@
 class Service < ApplicationRecord
-  belongs_to :page
+  has_many :pages, dependent: :destroy
+  has_many :cities, through: :pages
+  belongs_to :business
 end

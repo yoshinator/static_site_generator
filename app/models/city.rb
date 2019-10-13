@@ -1,3 +1,5 @@
 class City < ApplicationRecord
-  belongs_to :page
+  has_many :pages, dependent: :destroy
+  has_many :services, through: :pages
+  belongs_to :business
 end

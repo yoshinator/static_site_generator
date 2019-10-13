@@ -1,7 +1,7 @@
 class Business < ApplicationRecord
-  has_many :pages
-  has_many :services, through: :pages
-  has_many :cities, through: :pages
-  has_many :leads
-  has_many :users
+  has_many :pages, dependent: :destroy
+  has_many :services, dependent: :destroy
+  has_many :cities, dependent: :destroy
+  has_many :leads, dependent: :destroy
+  has_many :users, dependent: :destroy
 end
