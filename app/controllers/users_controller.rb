@@ -27,6 +27,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @user = User.find(params[:id])
   end
 
   # PATCH/PUT /users/1
@@ -57,6 +58,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:f_name, :l_name, :email, :username, :admin)
+      params.require(:user).permit(:f_name, :l_name, :email, :username, :admin, :business_id)
     end
 end

@@ -7,7 +7,7 @@
   </header>
   <div class="bg-dark ">
   <div class="text-light py-2">
-      <h1 class="mx-auto text-center my-0 text-uppercase">New User </h1>
+      <h1 class="mx-auto text-center my-0 text-uppercase">User Details </h1>
     </div>
   </div>
 
@@ -52,7 +52,7 @@
 
       <%= form.text_field :username, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 ", placeholder: "Enter optional nickname" %>
 
-      <%= collection_select(:user, :id, Business.all, :id, :name, {}, class: "form-control") %>
+      <%= collection_select(:user, :business_id, Business.all, :id, :name, {}, class: "form-control") %>
       <div class="form-check">
       <%= form.check_box :admin, class: "form-check-input" %>
       <%= form.label :admin, class: "form-check-label" %>
