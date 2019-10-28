@@ -301,3 +301,6 @@ $(document).on('ready turbolinks:load', function () {
 //= require bootstrap-sprockets
 
 import '../stylesheets/application'
+
+require("trix")
+require("@rails/actiontext")
