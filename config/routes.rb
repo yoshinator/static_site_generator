@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   resources :users
   resources :businesses
   resources :leads
-  resource :cities
-  resource :services
+  resources :cities
+  resources :services
   get "/", to: "static_pages#index"
   get "/logout", to: "sessions#destroy"
 

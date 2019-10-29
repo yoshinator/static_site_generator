@@ -8,6 +8,11 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("bootstrap/dist/js/bootstrap")
+import "../stylesheets/actiontext"
+import { library, dom } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { far } from '@fortawesome/free-regular-svg-icons'
+import { fab } from '@fortawesome/free-brands-svg-icons'
 
 /*
 * jQuery Easing v1.4.1 - http://gsgd.co.uk/sandbox/jquery/easing/
@@ -16,8 +21,11 @@ require("bootstrap/dist/js/bootstrap")
 * All rights reserved.
 * https://raw.github.com/gdsmith/jquery.easing/master/LICENSE
 */
+library.add(fas, far, fab)
+dom.watch()
 
 $(document).on('ready turbolinks:load', function () {
+
   (function (factory) {
     if (typeof define === "function" && define.amd) {
       define(['jquery'], function ($) {
@@ -297,7 +305,7 @@ $(document).on('ready turbolinks:load', function () {
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-//= require popper
+
 //= require bootstrap-sprockets
 
 import '../stylesheets/application'
