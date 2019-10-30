@@ -11,6 +11,7 @@ class LeadsController < ApplicationController
     @lead = Lead.addContent(lead_params, @lead)
     if @lead.valid? 
       @lead.save 
+      LeadMailer.with(lead: @lead).lead_email
       flash[:notice] = "success"
       redirect_to root_path
     else 
@@ -21,6 +22,12 @@ class LeadsController < ApplicationController
 
   def show  
   end
+
+  def destroy 
+    @lead = Lead.find(params[:id])
+    @lead.destroy 
+    redirect_to leads_path
+  end 
 
   private
 
