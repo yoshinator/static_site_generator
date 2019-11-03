@@ -11,7 +11,7 @@ class LeadsController < ApplicationController
     @lead = Lead.addContent(lead_params, @lead)
     if @lead.valid? 
       @lead.save 
-      LeadMailer.with(lead: @lead).lead_email
+      LeadMailer.with(lead: @lead).lead_email.deliver_now
       flash[:notice] = "success"
       redirect_to root_path
     else 
