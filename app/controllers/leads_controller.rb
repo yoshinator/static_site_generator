@@ -12,7 +12,7 @@ class LeadsController < ApplicationController
     if @lead.valid? 
       @lead.save 
       LeadMailer.with(lead: @lead).lead_email.deliver_now
-      flash[:notice] = "success"
+      flash[:notice] = "Thank you for contacting #{@lead.business.name}. We will contact you shortly for a quote. If you need immediate help please call #{ActionController::Base.helpers.number_to_phone @lead.business.phone, area_code: true }"
       redirect_to root_path
     else 
       flash[:notice] = "fail"
