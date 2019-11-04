@@ -36,6 +36,9 @@
 }
 
 trix-editor {
+  &.form-control {
+    height: auto
+  }
   border: 1px solid #bbb;
   border-radius: 3px;
   margin: 0;

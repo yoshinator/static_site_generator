@@ -2,25 +2,39 @@ class BusinessesController < ApplicationController
 
   before_action :authorize
   before_action :set_business, only: [:show, :edit, :update, :destroy]
+  
   def index
-    @businesses = Business.all
+    if  @user.super_user?
+      @businesses = Business.all 
+    else 
+      @businesses = [@user.business]
+    end
   end
 
   def new
-    @business = Business.new
+    if @user.super_user?
+      @business = Business.new
+      render :new 
+    else 
+      redirect_to businesses_path
+    end 
   end
 
   def create
+    if @user.super_user?
     @business = Business.new(business_params)
-    respond_to do |format|
-      if @business.save
-        format.html { redirect_to @business, notice: 'business was successfully created.' }
-        format.json { render :show, status: :created, location: @business }
-      else
-        format.html { render :new }
-        format.json { render json: @business.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @business.save
+          format.html { redirect_to @business, notice: 'business was successfully created.' }
+          format.json { render :show, status: :created, location: @business }
+        else
+          format.html { render :new }
+          format.json { render json: @business.errors, status: :unprocessable_entity }
+        end
       end
-    end
+    else 
+      redirect_to businesses_path
+    end 
   end
 
   def show
@@ -57,11 +71,12 @@ class BusinessesController < ApplicationController
 
   def set_business
         @business = Business.find(params[:id])
+        @business = @user.business if !@user.super_user?
   end
 
       # Never trust parameters from the scary internet, only allow the white list through.
-    def business_params
-      params.require(:business).permit(:name)
-    end
+  def business_params
+    params.require(:business).permit(:name)
+  end
 
 end

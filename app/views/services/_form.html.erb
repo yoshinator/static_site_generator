@@ -1,0 +1,18 @@
+<div class="container my-4">
+<h4 class="text-center p-1" >Create New Service </h4>
+<%=form_with model: service , scope: :article, local: true do |form| %>
+  <div class="form-group">
+
+      <%= form.label :title %><br>
+          <%= form.text_field :title, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1" %>
+    
+      <%= form.label :text %><br>
+          <%= form.rich_text_area :text, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1" %>
+    
+        <div class="form-group text-right">
+          <%= form.submit class: "btn btn-primary mx-auto"%>
+        </div>
+    
+  </div>
+<% end %>
+</div>

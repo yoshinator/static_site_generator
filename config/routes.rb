@@ -5,16 +5,17 @@ Rails.application.routes.draw do
   resources :businesses
   resources :leads
   resources :cities
-  resources :services
-  get "/", to: "static_pages#index"
-  get "/logout", to: "sessions#destroy"
 
+  post "/services/new", to: "services#link_business"
+  patch "/services/new", to: "services#unlink_business"
+  resources :services
 
   # Routes for Google authentication
   # /auth/google_oauth2 <-- sign in middleware
+  # and to log out
   get "auth/:provider/callback", to: "sessions#googleAuth"
   get "auth/failure", to: redirect("/")
-
+  get "/logout", to: "sessions#destroy"
 
   # static pages 
   get "/about", to: "static_pages#about"
