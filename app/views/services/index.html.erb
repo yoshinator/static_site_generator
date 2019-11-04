@@ -1,9 +1,26 @@
 <%= render "layouts/header"%>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <h3>Available services</h3>
+      <ul>
+      <%@services.each do |service| %>
+        <li>
+          <%=link_to "#{service.title} type: #{service.type}", service%>
+        </li>
+      <% end %>
+      </ul>
+    </div>
 
-<ul>
-<%@services.each do |service| %>
-  <li>
-    <%=link_to "#{service.title} type: #{service.type}", service%>
-  </li>
-<%end%>
-</ul>
+    <div class="col-6">
+      <h3>Enrolled Services</h3>
+      <ul>
+        <%@user.business.services.each do |service| %>
+        <li>
+          <%=service%>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+</div>
+</div>

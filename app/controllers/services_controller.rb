@@ -1,4 +1,6 @@
 class ServicesController < ApplicationController
+
+  before_action :authorize
   
   def index 
     @services = Service.all
@@ -37,6 +39,12 @@ class ServicesController < ApplicationController
   end
 
   private 
+
+  def authorize
+      @user = User.find_by(id: session[:current_user_id])
+      redirect_to root_path	if !@user || !@user.admin
+  end
+
   def service_params
       params.require(:article).permit(:title, :text, :type) 
   end
