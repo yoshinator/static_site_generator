@@ -1,4 +1,13 @@
+<%= render "layouts/nav"%>
+<%= render "layouts/header"%>
 <strong>Business Name</strong>
 <%=@business.name%>
 <%= link_to 'Edit', edit_business_path(@business) %> |
 <%= link_to 'Back', businesses_path %>
+<ul>
+<%@business.services.each do |service| %>
+<li>
+  <%= link_to "#{service.title} | #{service.type}", service%>
+  </li>
+<% end %>
+</ul>

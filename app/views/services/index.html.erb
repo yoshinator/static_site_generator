@@ -1,4 +1,9 @@
 <%= render "layouts/header"%>
+
+<ul>
 <%@services.each do |service| %>
-  <%=link_to service.title, service%>
+  <li>
+    <%=link_to "#{service.title} type: #{service.type}", service%>
+  </li>
 <%end%>
+</ul>
