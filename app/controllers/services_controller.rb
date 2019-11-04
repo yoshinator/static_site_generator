@@ -38,15 +38,30 @@ class ServicesController < ApplicationController
     @service = Service.find(params[:id])
   end
 
-  private 
+  def link_business 
+    params[:service_ids].each do |id|
+      # byebug @business_services.create(service_id: business_id:)
+      @user.business.services << Service.find(id.to_i)
+    end 
+    redirect_to services_path
+  end 
 
+  def unlink_business
+    params[:service_ids].each do |id|
+      service = Service.find(id.to_i)
+      @user.business.services.delete(service)
+    end 
+    redirect_to services_path
+  end 
+
+  private 
   def authorize
       @user = User.find_by(id: session[:current_user_id])
       redirect_to root_path	if !@user || !@user.admin
   end
 
   def service_params
-      params.require(:article).permit(:title, :text, :type) 
+      params.require(:article).permit(:title, :text, :type, :service_ids) 
   end
 
 end

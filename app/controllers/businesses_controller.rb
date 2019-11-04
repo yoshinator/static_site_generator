@@ -2,6 +2,7 @@ class BusinessesController < ApplicationController
 
   before_action :authorize
   before_action :set_business, only: [:show, :edit, :update, :destroy]
+  
   def index
     if  @user.super_user?
       @businesses = Business.all 
