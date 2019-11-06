@@ -61,6 +61,10 @@ class CitiesController < ApplicationController
     redirect_to cities_path if !@user.super_user && !@user.admin
   end
 
+  def city_params
+    params.require(:city).permit(:county, :state, :name, :city_ids)
+  end 
+
   # A list of the param names that can be used for filtering the Product list
   def filtering_params(params)
     params.slice(:state, :county, :starts_with)

@@ -1,10 +1,10 @@
        <%= form_with url: new_city_path, method: "PATCH" do |form| %>
       <ul>
-        <%@user.business.cities.each do |city| %>
+        <%business.cities.each do |city| %>
           <li>
             <label class="city_ids-select"> 
               <%= check_box_tag 'city_ids[]', city.id -%>
-              <%= city.title %>
+              <%= "#{city.name}, #{city.state}" %>
             </label>
           </li>
         <% end %>

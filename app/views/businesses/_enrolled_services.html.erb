@@ -1,6 +1,6 @@
        <%= form_with url: new_service_path, method: "PATCH" do |form| %>
       <ul>
-        <%@user.business.services.each do |service| %>
+        <%business.services.each do |service| %>
           <li>
             <label class="service_ids-select"> 
               <%= check_box_tag 'service_ids[]', service.id -%>

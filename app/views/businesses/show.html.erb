@@ -5,22 +5,25 @@
 <%= link_to 'Edit', edit_business_path(@business) %> |
 <%= link_to 'Back', businesses_path %>
 <div class="row">
-<div class="col-6">
-    <ul>
-    <%@business.services.each do |service| %>
-    <li>
-      <%= link_to "#{service.title} | #{service.type}", service%>
-      </li>
-    <% end %>
-    </ul>
+
+  <div class="col-3">
+      <h3>Available services</h3>
+      <%= render "businesses/unenrolled_services", business: @business%>
   </div>
-  <div class="col-6">
-      <ul>
-    <%@business.cities.each do |city| %>
-    <li>
-      <%= link_to "#{city.name} | #{city.county}, #{city.state}", city%>
-      </li>
-    <% end %>
-    </ul>
+
+  <div class="col-3">
+      <h3>Enrolled Services</h3>
+      <%= render "businesses/enrolled_services", business: @business%>
   </div>
+
+  <div class="col-3">
+  <h3>Enrolled Cities</h3>
+  <%= render "businesses/enrolled_cities", business: @business%>
+
+  </div>
+
+  <div class="col-3">
+
+  </div>
+
 </div>

@@ -1,0 +1,13 @@
+        <%= form_with url: new_city_path, method: "POST" do |form| %>
+        <ul>
+          <%business.available_citie.each do |city| %>
+            <li>
+              <label class= "city_ids-select"> 
+                <%= check_box_tag 'city_ids[]', city.id -%>
+                <%="#{city.name}, #{city.state}"%>
+              </label>
+            </li>
+          <% end %>
+          <%= form.submit%>
+        </ul>
+      <% end %> 
