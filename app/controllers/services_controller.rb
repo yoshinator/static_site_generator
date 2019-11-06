@@ -1,7 +1,7 @@
 class ServicesController < ApplicationController
 
   before_action :authorize
-  
+
   def index 
     @services = Service.all
   end 
@@ -9,7 +9,7 @@ class ServicesController < ApplicationController
   def new 
     @service = Service.new 
   end
-  
+
   def create 
     @service = Service.new(service_params)
     if @service.save
@@ -19,16 +19,16 @@ class ServicesController < ApplicationController
     end
   end
 
-  def edit 
+  def edit
     @service = Service.find(params[:id])
-  end 
+  end
 
   def update 
     @service = Service.find(params[:id])
     if @service.update(service_params)
       flash[:notice] = "Succesfully updated service"
       redirect_to @service
-    else 
+    else
       flash[:notice] = "Sorry something went wrong and we couldn't edit the service"
       render edit_service_path(@service)
     end
@@ -38,7 +38,7 @@ class ServicesController < ApplicationController
     @service = Service.find(params[:id])
   end
 
-  def link_business 
+  def link_business
     params[:service_ids].each do |id|
       # byebug @business_services.create(service_id: business_id:)
       @user.business.services << Service.find(id.to_i)

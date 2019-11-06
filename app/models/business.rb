@@ -3,6 +3,8 @@ class Business < ApplicationRecord
   has_many :users, dependent: :destroy
   has_many :business_services, dependent: :destroy
   has_many :services, through: :business_services
+  has_many :city_services, dependent: :destroy 
+  has_many :cities, through: :city_services
 
   def not_enrolled
     Service.all.select do |service|

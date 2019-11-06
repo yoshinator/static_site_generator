@@ -1,0 +1,13 @@
+        <%= form_with url: new_service_path, method: "POST" do |form| %>
+        <ul>
+          <%@user.business.not_enrolled.each do |service| %>
+            <li>
+              <label class="service_ids-select"> 
+                <%= check_box_tag 'service_ids[]', service.id -%>
+                <%=service.title%>
+              </label>
+            </li>
+          <% end %>
+          <%= form.submit%>
+        </ul>
+      <% end %> 

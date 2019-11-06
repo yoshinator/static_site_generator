@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :users
   resources :businesses
   resources :leads
+
+  post "/cities/new", to: "cities#link_city"
+  patch "/cities/new", to: "cities#unlink_city"
   resources :cities
 
   post "/services/new", to: "services#link_business"
