@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   patch "/services/new", to: "services#unlink_business"
   resources :services
 
+  get "/businesses/:business_id/:service_id/:city_id", to: "static_pages#page"
+
   # Routes for Google authentication
   # /auth/google_oauth2 <-- sign in middleware
   # and to log out

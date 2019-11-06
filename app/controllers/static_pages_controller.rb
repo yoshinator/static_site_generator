@@ -4,6 +4,10 @@ class StaticPagesController < ApplicationController
     def index 
     end
 
+    def page 
+
+    end 
+
     def about
     end
 
@@ -58,14 +62,3 @@ class StaticPagesController < ApplicationController
     end 
     
 end
-
-"""
-
-
-
-
-
-
-
-
-"""

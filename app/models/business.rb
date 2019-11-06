@@ -11,4 +11,10 @@ class Business < ApplicationRecord
       !self.services.include?(service)
     end
   end 
+
+  def available_citie
+    City.all.select do |city|
+      !self.cities.include?(city)
+    end 
+  end 
 end
