@@ -4,5 +4,12 @@
 <%= content_for(:meta_description, "#{@service.title} #{@city.name}, #{@city.state}") %>
 <%= content_for(:meta_keywords, "#{@service.title} #{@city.name}, #{@city.state}") %>
 
-<h1><%= "#{@service.title} #{@city.name}, #{@city.state}" %></h1>
-
+<div class="container">
+  <h1><%= "#{@service.title} #{@city.name}, #{@city.state}" %></h1>
+  
+  <%@service.blocks.each do |block|%>
+    <h2><%=miscxer(block.heading, @city)%></h2>
+    <div class="muxed"><%=raw miscxer(block.text.body.to_rendered_html_with_layout.html_safe, @city)%></div>
+    <hr>
+  <% end %>
+</div>
