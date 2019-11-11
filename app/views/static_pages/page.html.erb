@@ -8,8 +8,8 @@
   <h1><%= "#{@service.title} #{@city.name}, #{@city.state}" %></h1>
   
   <%@service.blocks.each do |block|%>
-    <h2><%=miscxer(block.heading, @city)%></h2>
-    <div class="muxed"><%=raw miscxer(block.text.body.to_rendered_html_with_layout.html_safe, @city)%></div>
+    <h2><%=muxer(block.heading, @city)%></h2>
+    <div class="muxed"><%=raw muxer(block.text.body.to_rendered_html_with_layout.html_safe, @city)%></div>
     <hr>
   <% end %>
 </div>

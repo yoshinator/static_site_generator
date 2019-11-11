@@ -8,7 +8,7 @@ module ApplicationHelper
     link_to(name, '#', class: "add_fields " + args[:class], data: {id: id, fields: fields.gsub("\n", "")})
   end
 
-  def miscxer (content, city)
+  def muxer (content, city)
 
     content.gsub(/\[ror_city\]/, "#{city.name}, #{city.state}")
   end 
