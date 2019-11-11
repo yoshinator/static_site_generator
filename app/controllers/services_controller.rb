@@ -8,9 +8,11 @@ class ServicesController < ApplicationController
 
   def new 
     @service = Service.new 
+    @service.blocks.build
   end
 
   def create 
+    byebug
     @service = Service.new(service_params)
     if @service.save
       redirect_to @service 
@@ -21,6 +23,7 @@ class ServicesController < ApplicationController
 
   def edit
     @service = Service.find(params[:id])
+    @service.blocks.build
   end
 
   def update 
@@ -61,7 +64,8 @@ class ServicesController < ApplicationController
   end
 
   def service_params
-      params.require(:article).permit(:title, :text, :type, :service_ids) 
+      params.require(:article).permit(:title,  :type, :service_ids, 
+                    blocks_attributes: Block.attribute_names.map(&:to_sym).push(:_destroy, :text)) 
   end
 
 end

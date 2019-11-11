@@ -1,0 +1,10 @@
+<tr>
+  <td>
+    <%= f.text_field :_destroy, as: :hidden %>
+    <%= link_to 'Delete', '#', class: 'remove_record' %>
+  </td>
+  <td><%= f.text_field :heading, label: false, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1" %></td>
+  <td><%= f.text_field :img_url, label: false %></td>
+  <td><%= f.rich_text_area :text, label: false, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1"%></td>
+
+</tr>

@@ -1,5 +1,10 @@
 <%= render "layouts/header"%>
 <div class="container">
   <%=@service.title%>
-  <%=@service.text%>
+  <%@service.blocks.each do |block|%>
+    <h2><%=block.heading if block.heading%><h2>
+    <%= image_tag block.img_url, alt: @service.title, src: "Image Not Found", onerror: "this.style.display='none'"  if asset_exists?(block.img_url)%>
+    <%=block.text if block.text%>
+
+  <% end %>
 </div>

@@ -230,7 +230,7 @@ $(document).on('ready turbolinks:load', function () {
 
   })(jQuery); // End of use strict
 
-  // FORM
+  // Multi Step Lead Form.
 
   $("#next-1").click(function (e) {
     e.preventDefault();
@@ -296,6 +296,22 @@ $(document).on('ready turbolinks:load', function () {
     $("#progressText").text("Step - 4");
   });
 
+  // next two functions are to dynamically add or remove blocks for services
+  $('form').on('click', '.remove_record', function (event) {
+    $(this).prev('input[type=hidden]').val('1');
+    $(this).closest('tr').hide();
+    return event.preventDefault();
+  });
+
+  $('form').on('click', '.add_fields', function (event) {
+    var regexp, time;
+    time = new Date().getTime();
+    regexp = new RegExp($(this).data('id'), 'g');
+    $('.fields').append($(this).data('fields').replace(regexp, time));
+    return event.preventDefault();
+  });
+
+  // Modal toggle
   $('#myModal').modal()
 });
 // Uncomment to copy all static images under ../images to the output folder and reference

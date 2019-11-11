@@ -1,18 +1,29 @@
-<div class="container my-4">
-<h4 class="text-center p-1" >Create New Service </h4>
-<%=form_with model: service , scope: :article, local: true do |form| %>
-  <div class="form-group">
 
-      <%= form.label :title %><br>
-          <%= form.text_field :title, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1" %>
-    
-      <%= form.label :text %><br>
-          <%= form.rich_text_area :text, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1" %>
-    
-        <div class="form-group text-right">
-          <%= form.submit class: "btn btn-primary mx-auto"%>
-        </div>
-    
+
+<%= form_with model: service, scope: :article, local: true do |f| %>
+
+  <div class="form-inputs">
+    <%= f.text_field :title , placeholder: "Enter the name of the service", class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1"%>
+  </div>
+
+  <table class='table'>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Heading</th>
+        <th>Image Url</th>
+        <th>Content</th>
+      </tr>
+    </thead>
+    <tbody class='fields'>
+      <%= f.fields_for :blocks do |builder| %>
+        <%= render 'block', f: builder %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="form-actions">
+    <%= f.submit :save , class: 'btn btn-secondary'%>
+    <%= link_to_add_row('Add Block', f, :blocks, class: 'btn btn-primary') %>
   </div>
 <% end %>
-</div>

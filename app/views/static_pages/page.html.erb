@@ -1,1 +1,8 @@
-<h1>Just Checking</h1>
+<%= render "layouts/nav"%>
+<%= render "layouts/header"%>
+<%= content_for(:title, "#{@service.title} #{@city.name}, #{@city.state}") %>
+<%= content_for(:meta_description, "#{@service.title} #{@city.name}, #{@city.state}") %>
+<%= content_for(:meta_keywords, "#{@service.title} #{@city.name}, #{@city.state}") %>
+
+<h1><%= "#{@service.title} #{@city.name}, #{@city.state}" %></h1>
+

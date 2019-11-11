@@ -6,6 +6,9 @@ class StaticPagesController < ApplicationController
 
     def page 
 
+        @business = Business.find(params[:business_id])
+        @service = @business.services.find(params[:service_id]) 
+        @city = @business.cities.find(params[:city_id])
     end 
 
     def about

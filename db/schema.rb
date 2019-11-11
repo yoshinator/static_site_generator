@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_06_010837) do
+ActiveRecord::Schema.define(version: 2019_11_10_202338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,15 @@ ActiveRecord::Schema.define(version: 2019_11_06_010837) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "blocks", force: :cascade do |t|
+    t.string "heading"
+    t.string "img_url"
+    t.bigint "service_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["service_id"], name: "index_blocks_on_service_id"
   end
 
   create_table "business_services", force: :cascade do |t|
@@ -119,6 +128,7 @@ ActiveRecord::Schema.define(version: 2019_11_06_010837) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "blocks", "services"
   add_foreign_key "business_services", "businesses"
   add_foreign_key "business_services", "services"
   add_foreign_key "city_services", "businesses"
