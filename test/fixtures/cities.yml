@@ -3,11 +3,9 @@
 one:
   name: 
   state: MyString
-  string,: MyString
   content: MyText
 
 two:
   name: 
   state: MyString
-  string,: MyString
   content: MyText
